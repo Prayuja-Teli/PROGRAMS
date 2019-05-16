@@ -9,7 +9,7 @@ uname -s
 #Display name of processor
 uname -p
 #Display DayNum in year
-cat -j
+cal -j
 #Display date in yyyy/mm/dd
 date +%F
 echo ALL COMMANDS SUCCSSFULLY COMPILED
