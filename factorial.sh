@@ -10,4 +10,4 @@ do
   num=$((num - 1))      #num = num - 1
 done
 
-echo $fact
+echo The factorial is  $fact
