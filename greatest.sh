@@ -1,5 +1,12 @@
-echo Enter 3  numbers with spaces in between
-read a b c
+#echo Enter 3  numbers with spaces in between
+
+echo "enter first number"
+read a
+echo "enter second number"
+read b
+echo "enter third number"
+read c
+
 l=$a
 if [ $b -gt $l ]
 then
