@@ -48,5 +48,5 @@
 
 find / -type f -size +90M -exec du -h 2>/dev/null {} + | sort -rh | head -n 10 > output.txt
 
-#echo "Hi Team,This is mail regarding files which contains huge amount of data.I have attched output file which contains files whose size is huge."
+#echo "Hi Team,This is mail regarding files which contains huge amount of data.I have attched output file which contains files whose size is huge. | "
 mailx -s "Huge Files" prayuja@krishagni.com < output.txt
