@@ -42,11 +42,15 @@
 
 # output.txt this will be file where we save our output which is redirected from terminal
 
+#mailx utility which send and receives mails.
+
+# -s flag to send subject line in email
+
+# -r used to specify Name and address of sender
 
 
 
 
 find / -type f -size +90M -exec du -h 2>/dev/null {} + | sort -rh | head -n 10 > output.txt
 
-#echo "Hi Team,This is mail regarding files which contains huge amount of data.I have attched output file which contains files whose size is huge. | "
-mailx -s "Huge Files" prayuja@krishagni.com < output.txt
+mailx -s "Files of size more than 1GB" -r Prayuja"<prayujateli@gmail.com>" prayuja@krishagni.com < output.txt
