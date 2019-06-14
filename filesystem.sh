@@ -51,6 +51,5 @@
 
 
 
-find / -type f -size +90M -exec du -h 2>/dev/null {} + | sort -rh | head -n 10 > output.txt
-
-mailx -s "Files of size more than 1GB" -r Prayuja"<prayujateli@gmail.com>" prayuja@krishagni.com < output.txt
+find / -type f -size +999M -exec du -h 2>/dev/null {} + | sort -rh > output.txt
+mailx -s "Files of size more than 1GB" -r Prayuja"<prayujateli@gmail.com>"  prayuja@krishagni.com < output.txt
