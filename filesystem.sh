@@ -38,7 +38,7 @@
 
 # -n -10 : Print the first 10 files.
 
-# > redirection of output from terminal to txt file 
+# >> redirection of multiple output from terminal to txt file  
 
 # output.txt this will be file where we save our output which is redirected from terminal
 
@@ -51,5 +51,6 @@
 
 
 
-find / -type f -size +999M -exec du -h 2>/dev/null {} + | sort -rh > output.txt
+find / -type f -size +999M -exec du -h 2>/dev/null {} + | sort -rh >> output.txt
+hostname -I >> output.txt
 mailx -s "Files of size more than 1GB" -r Prayuja"<prayujateli@gmail.com>"  prayuja@krishagni.com < output.txt
