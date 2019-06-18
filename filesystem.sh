@@ -46,7 +46,7 @@ echo "This are the list of files greater than size 1GB" >> output.txt
 find / -type f -size +1G -exec du -h 2>/dev/null {} + | sort -rh  >> output.txt
 #Serach for server IPAddress
 echo "Files are from server" >> output.txt 
-curl ifconfig.me >> output.txt 
+hostname -I >> output.txt 
 #Send Email only if file is greater than 1GB
 if
 
