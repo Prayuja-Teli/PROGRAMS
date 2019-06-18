@@ -48,12 +48,11 @@
 
 # -r used to specify Name and address of sender
 
-
-
-find / -type f -size +1G -exec du -h 2>/dev/null {} + | sort -rh | head -n 10 >> output.txt
+echo "This are the list of files greater than size 1GB" >> output.txt
+find / -type f -size +1G -exec du -h 2>/dev/null {} + | sort -rh  >> output.txt
 #Serach for server IPAddress
-hostname -I >> output.txt
-
+echo "Files are from server" >> output.txt 
+hostname -I >> output.txt 
 #Send Email only if file is greater than 1GB
 if
 
@@ -61,6 +60,5 @@ if
 
 then
 
-    echo "File greater than 1GB" | mailx -s "Files of size more than 1GB" -r prayujateli@gmail.com  prayuja@krishagni.com < output.txt
-
+mailx -v -s "Files greater than  size 1GB" -S smtp-use-starttls -S ssl-verify=ignore -S smtp-auth=login -S smtp=smtp://smtp.gmail.com:587 -S from="prayujawork@gmail.com(Prayuja Teli)" -S smtp-auth-user=prayujawork@gmail.com -S smtp-auth-password=Prayuja#123 -S ssl-verify=ignore prayuja@krishagni.com < output.txt
 fi
