@@ -10,7 +10,7 @@
 
 # -size defines size of particular file
 
-# M Megabytes
+# G Gigabyte
 
 # -exec runs the specified command on the selected files
 
@@ -42,23 +42,18 @@
 
 # output.txt this will be file where we save our output which is redirected from terminal
 
-#mailx utility which send and receives mails.
-
-# -s flag to send subject line in email
-
-# -r used to specify Name and address of sender
-
 echo "This are the list of files greater than size 1GB" >> output.txt
 find / -type f -size +1G -exec du -h 2>/dev/null {} + | sort -rh  >> output.txt
 #Serach for server IPAddress
 echo "Files are from server" >> output.txt 
-hostname -I >> output.txt 
+curl ifconfig.me >> output.txt 
 #Send Email only if file is greater than 1GB
 if
 
     [ -s /root/output.txt ]
 
 then
-
+#mailx utility which send and receives mails.
+# -s flag to send subject line in email
 mailx -v -s "Files greater than  size 1GB" -S smtp-use-starttls -S ssl-verify=ignore -S smtp-auth=login -S smtp=smtp://smtp.gmail.com:587 -S from="prayujawork@gmail.com(Prayuja Teli)" -S smtp-auth-user=prayujawork@gmail.com -S smtp-auth-password=Prayuja#123 -S ssl-verify=ignore prayuja@krishagni.com < output.txt
 fi
