@@ -50,10 +50,6 @@
 
 
 
-
-#!bin/bash
-
-
 find / -type f -size +1G -exec du -h 2>/dev/null {} + | sort -rh | head -n 10 >> output.txt
 #Serach for server IPAddress
 hostname -I >> output.txt
