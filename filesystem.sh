@@ -51,6 +51,15 @@
 
 
 
-find / -type f -size +999M -exec du -h 2>/dev/null {} + | sort -rh >> output.txt
+find / -type f -size +1G -exec du -h 2>/dev/null {} + | sort -rh | head -n 10 >> output.txt
 hostname -I >> output.txt
-mailx -s "Files of size more than 1GB" -r Prayuja"<prayujateli@gmail.com>"  prayuja@krishagni.com < output.txt
+
+if
+
+ (find /root/output.txt -type f -size +1G 2>/dev/null);
+
+then
+
+mailx -s "Files of size more than 1GB" -r prayujateli@gmail.com  prayuja@krishagni.com < output.txt
+
+fi
