@@ -55,5 +55,5 @@ if
 then
 #mailx utility which send and receives mails.
 # -s flag to send subject line in email
-mailx -v -s "Files greater than  size 1GB" -S smtp-use-starttls -S ssl-verify=ignore -S smtp-auth=login -S smtp=smtp://smtp.gmail.com:587 -S from="prayujawork@gmail.com(Prayuja Teli)" -S smtp-auth-user=prayujawork@gmail.com -S smtp-auth-password=Prayuja#123 -S ssl-verify=ignore prayuja@krishagni.com < output.txt
+mailx -v -s "Files greater than  size 1GB" -S smtp-use-starttls -S ssl-verify=ignore -S smtp-auth=login -S smtp=smtp://smtp.gmail.com:587 -S from="sender@gmail.com(Prayuja Teli)" -S smtp-auth-user=sender_mail_id -S smtp-auth-password=sender_passwd -S ssl-verify=ignore recipient_mail_id < output.txt
 fi
