@@ -50,7 +50,7 @@ ifconfig |grep inet >> output.txt
 #Send Email only if file is greater than 1GB
 if
 
-    [ -s /root/output.txt ]
+    [ -s /tmp/output.txt ]
 
 then
 #mailx utility which send and receives mails.
