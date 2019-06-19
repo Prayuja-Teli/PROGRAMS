@@ -1,3 +1,24 @@
+#!bin/bash
+
+
+echo "This are the list of files greater than size 1GB" >> output.txt
+find / -type f -size +1G -exec du -h 2>/dev/null {} + | sort -rh  >> output.txt
+#Serach for server IPAddress
+echo "Files are from server" >> output.txt 
+ifconfig |grep inet >> output.txt 
+#Send Email only if file is greater than 1GB
+if
+
+    [ -s /tmp/output.txt ]
+
+then
+#mailx utility which send and receives mails.
+# -s flag to send subject line in email
+mailx -v -s "Files greater than  size 1GB" -S smtp-use-starttls -S ssl-verify=ignore -S smtp-auth=login -S smtp=smtp://smtp.gmail.com:587 -S from="sender@gmail.com(Sender Name)" -S smtp-auth-user=sender_mail_id -S smtp-auth-password=sender_passwd -S ssl-verify=ignore recipient_mail_id < output.txt
+fi
+
+
+
 # make sure user have sudo permission or else you have to run file using sudo command
 
 #find Search for files in a directory hierarchy
@@ -42,18 +63,3 @@
 
 # output.txt this will be file where we save our output which is redirected from terminal
 
-echo "This are the list of files greater than size 1GB" >> output.txt
-find / -type f -size +1G -exec du -h 2>/dev/null {} + | sort -rh  >> output.txt
-#Serach for server IPAddress
-echo "Files are from server" >> output.txt 
-ifconfig |grep inet >> output.txt 
-#Send Email only if file is greater than 1GB
-if
-
-    [ -s /tmp/output.txt ]
-
-then
-#mailx utility which send and receives mails.
-# -s flag to send subject line in email
-mailx -v -s "Files greater than  size 1GB" -S smtp-use-starttls -S ssl-verify=ignore -S smtp-auth=login -S smtp=smtp://smtp.gmail.com:587 -S from="sender@gmail.com(Sender Name)" -S smtp-auth-user=sender_mail_id -S smtp-auth-password=sender_passwd -S ssl-verify=ignore recipient_mail_id < output.txt
-fi
